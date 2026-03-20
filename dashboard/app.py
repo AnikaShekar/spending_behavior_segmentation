@@ -485,13 +485,15 @@ with tab3:
  
     # Nested tabs INSIDE the Visualizations tab
     # This organizes 5 different plots cleanly
-    # Without nested tabs, all plots would stack vertically — messy
-    inner_tab1, inner_tab2, inner_tab3, inner_tab4, inner_tab5 = st.tabs([
-        "Cluster Scatter",   # PCA 2D visualization of all clusters
-        "Cluster Sizes",     # bar chart of customer count per segment
-        "Cluster Heatmap",   # feature averages per cluster as heatmap
-        "Elbow Curve",       # inertia vs K — used to choose K=5
-        "Silhouette Plot"    # validation plot — how well clusters are separated
+    # Without nested tabs, all plots would stack vertically — mess
+    inner_tab1, inner_tab2, inner_tab3, inner_tab4, inner_tab5, inner_tab6, inner_tab7 = st.tabs([
+        "Cluster Scatter",
+        "Cluster Sizes",
+        "Cluster Heatmap",
+        "Elbow Curve",
+        "Silhouette Plot",
+        "Algorithm Comparison",
+        "Comparison Scatter"
     ])
  
     # List of (image_path, caption) pairs — one for each inner tab
@@ -506,7 +508,11 @@ with tab3:
         ('reports/elbow_curve.png',
          "Elbow method — optimal K=5 selected based on inertia drop"),
         ('reports/silhouette_plot.png',
-         "Silhouette score = 0.193 — moderate separation, acceptable for real world data")
+         "Silhouette score = 0.193 — moderate separation, acceptable for real world data"),
+        ('reports/algorithm_comparison.png',
+         "K-Means (0.193) outperforms Agglomerative (0.176) — K-Means selected as final algorithm"),
+        ('reports/comparison_plot.png',
+         "Visual comparison of K-Means vs Agglomerative cluster boundaries using PCA 2D projection")
     ]
  
     # zip() pairs each inner_tab object with its corresponding plot info
