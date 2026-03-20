@@ -13,24 +13,27 @@ This project analyzes credit card customer data to identify spending patterns an
 - Features Used: 17
 
 # Customer Segments Identified
-| 🔴 High Risk — Cash Advance & Debt Users  |  987 | High balance, high cash advance, barely pays back |
-| 🟡 Premium High Spenders                  |  395 | Highest purchases and credit limit                |
-| 🔵 Active Moderate Spenders               | 3164 | Largest group, moderate spending behavior         |
-| 🟠 Revolvers — Minimum Payers             | 3047 | Carry debt, very low full payment rate            |
-| 🟢 Inactive / Dormant Users               | 1357 | Lowest balance and purchases                      |
+| Segment | Customers | Description |
+|---|---|---|
+| 🔴 High Risk — Cash Advance & Debt Users | 987 | High balance, high cash advance, barely pays back |
+| 🟡 Premium High Spenders | 395 | Highest purchases and credit limit |
+| 🔵 Active Moderate Spenders | 3164 | Largest group, moderate spending behavior |
+| 🟠 Revolvers — Minimum Payers | 3047 | Carry debt, very low full payment rate |
+| 🟢 Inactive / Dormant Users | 1357 | Lowest balance and purchases |
 
 ---
 
 # Tech Stack
-Python - Core programming language
-Pandas - Data loading and manipulation
-NumPy - Numerical operations
-Scikit-learn - K-Means clustering, PCA, StandardScaler
-Matplotlib - Data visualization
-Seaborn - Statistical plots
-Streamlit - Interactive dashboard
+- Python - Core programming language
+- Pandas - Data loading and manipulation
+- NumPy - Numerical operations
+- Scikit-learn - K-Means clustering, PCA, StandardScaler
+- Matplotlib - Data visualization
+- Seaborn - Statistical plots
+- Streamlit - Interactive dashboard
 
 # Project Structure
+```
 spending-segmentation/
 │
 ├── data/
@@ -60,11 +63,11 @@ spending-segmentation/
 │   └── silhouette_plot.png
 │
 └── README.md
+```
 
 # Results
-
-Optimal K (clusters) - 5
-Silhouette Score - 0.193
-PCA Variance Explained - 47.6%
-Largest Segment - Active Moderate Spenders (35.4%)
-Smallest Segment - Premium High Spenders (4.4%)
+- Optimal K (clusters) - 5
+- Silhouette Score - 0.193
+- PCA Variance Explained - 47.6%
+- Largest Segment - Active Moderate Spenders (35.4%)
+- Smallest Segment - Premium High Spenders (4.4%)
