@@ -7,9 +7,8 @@ df=pd.read_csv('D:/Notes & TB/6th SEM/1.AIML/miniproject/spending-segmentation/d
 df.hist(bins=30,figsize=(20,15),color='steelblue',edgecolor='black')
 plt.suptitle('Feature Distribution',fontsize=16) #super title — one main title for the entire figure
 plt.tight_layout() #automatically adjusts spacing between subplots
-plt.show()
-
 plt.savefig('D:/Notes & TB/6th SEM/1.AIML/miniproject/spending-segmentation/reports/distributions.png')
+plt.show()
 
 """Histogram: It shows how many customers fall in each value range for a feature.
 X axis = value range of the feature (e.g. BALANCE from 0 to 19000)
@@ -22,9 +21,9 @@ plt.figure(figsize=(14,10))
 sns.heatmap(df.corr(),annot=True,fmt='.2f',cmap='coolwarm',linewidths=0.5)
 plt.title('Features Correlation Heatmap')
 plt.tight_layout()
+plt.savefig('D:/Notes & TB/6th SEM/1.AIML/miniproject/spending-segmentation/reports/correlation_heatmap.png')
 plt.show()
 
-plt.savefig('D:/Notes & TB/6th SEM/1.AIML/miniproject/spending-segmentation/reports/correlation_heatmap.png')
 
 """
 df.corr() - The correlation matrix.this is the data being plotted

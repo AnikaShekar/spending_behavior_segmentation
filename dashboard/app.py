@@ -518,7 +518,7 @@ with tab3:
     # zip() pairs each inner_tab object with its corresponding plot info
     # We loop through both simultaneously
     for tab, (path, caption) in zip(
-        [inner_tab1, inner_tab2, inner_tab3, inner_tab4, inner_tab5],
+        [inner_tab1, inner_tab2, inner_tab3, inner_tab4, inner_tab5, inner_tab6, inner_tab7],
         plots
     ):
         with tab:
