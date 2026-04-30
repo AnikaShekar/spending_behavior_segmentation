@@ -2,12 +2,8 @@
 
 A machine learning project that segments credit card customers into distinct behavioral groups using clustering algorithms, with an interactive Streamlit dashboard for exploration and prediction.
 
----
-
 ## Author
 **Anika Varsha Shekar** — [@AnikaShekar](https://github.com/AnikaShekar)
-
----
 
 ## Project Overview
 
@@ -20,8 +16,6 @@ This project analyzes credit card customer data to identify spending patterns an
 - **Total Customers:** 8,950
 - **Features Used:** 17 (13 after dropping redundant columns)
 
----
-
 ## Customer Segments Identified
 
 | Segment | Customers | Description |
@@ -32,20 +26,16 @@ This project analyzes credit card customer data to identify spending patterns an
 | 🟠 Revolvers — Minimum Payers | 3,047 | Carry debt, very low full payment rate |
 | 🟢 Inactive / Dormant Users | 1,357 | Lowest balance and purchases |
 
----
-
 ## Algorithm Comparison
 
 | Algorithm | Silhouette Score |
 |-----------|-----------------|
-| K-Means ✅ (selected) | 0.242 |
+| K-Means | 0.242 |
 | Agglomerative | 0.217 |
 | BIRCH | 0.169 |
 | Spectral | — |
 
 K-Means was selected as the final model due to the highest silhouette score, interpretable cluster profiles, and efficient scalability on 8,950 customers.
-
----
 
 ## Tech Stack
 
@@ -59,8 +49,6 @@ K-Means was selected as the final model due to the highest silhouette score, int
 | Seaborn | Statistical plots |
 | Joblib | Model serialisation |
 | Streamlit | Interactive dashboard |
-
----
 
 ## Project Structure
 spending-segmentation/
@@ -113,8 +101,6 @@ spending-segmentation/
 ├── runtime.txt
 └── README.md
 
----
-
 ## How to Run
 
 ### 1. Install dependencies
@@ -135,7 +121,7 @@ python src/silhouette.py      # Step 8 — Full silhouette analysis
 python src/predict.py         # Step 9 — CLI predictor (optional)
 ```
 
-> ⚠️ Always run from the project root `spending-segmentation/`, not from inside `src/`
+> Always run from the project root `spending-segmentation/`, not from inside `src/`
 
 ### 3. Launch the dashboard
 ```bash
