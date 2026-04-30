@@ -50,56 +50,56 @@ K-Means was selected as the final model due to the highest silhouette score, int
 | Streamlit | Interactive dashboard |
 
 ## Project Structure
-spending-segmentation/
-│
-├── data/
-│   ├── cc_general.csv               ← Raw dataset (Kaggle)
-│   ├── cleaned_data.csv             ← After preprocessing
-│   ├── clustered_data.csv           ← With K-Means labels
-│   ├── cluster_profile.csv          ← Mean KPIs per cluster
-│   ├── hierarchical_data.csv        ← With Agglomerative labels
-│   ├── birch_data.csv               ← With BIRCH labels
-│   └── spectral_data.csv            ← With Spectral labels
-│
-├── models/
-│   ├── scaler.pkl                   ← Fitted StandardScaler
-│   ├── pca.pkl                      ← Fitted PCA
-│   ├── kmeans.pkl                   ← Fitted K-Means model
-│   └── cluster_names.json           ← Cluster ID to name mapping
-│
-├── src/
-│   ├── main.py                      ← Data loading, cleaning, scaling
-│   ├── eda.py                       ← Exploratory data analysis plots
-│   ├── kmeans.py                    ← K-Means training + model saving
-│   ├── visualization.py             ← Cluster visualisations
-│   ├── hierarchical.py              ← Agglomerative clustering
-│   ├── birch.py                     ← BIRCH clustering
-│   ├── spectral.py                  ← Spectral clustering
-│   ├── silhouette.py                ← Silhouette analysis (all algorithms)
-│   └── predict.py                   ← CLI customer segment predictor
-│
-├── dashboard/
-│   └── app.py                       ← Streamlit interactive dashboard
-│
-├── reports/
-│   ├── distributions.png
-│   ├── correlation_heatmap.png
-│   ├── boxplots.png
-│   ├── elbow_curve.png
-│   ├── cluster_scatter.png
-│   ├── cluster_sizes.png
-│   ├── cluster_heatmap.png
-│   ├── silhouette_plot.png
-│   ├── comparison_plot.png
-│   ├── algorithm_comparison.png
-│   ├── algorithm_comparison_3.png
-│   ├── birch_comparison_plot.png
-│   └── spectral_comparison_plot.png
-│
-├── requirements.txt
-├── runtime.txt
-└── README.md
-
+    spending-segmentation/
+    │
+    ├── data/
+    │   ├── cc_general.csv               ← Raw dataset (Kaggle)
+    │   ├── cleaned_data.csv             ← After preprocessing
+    │   ├── clustered_data.csv           ← With K-Means labels
+    │   ├── cluster_profile.csv          ← Mean KPIs per cluster
+    │   ├── hierarchical_data.csv        ← With Agglomerative labels
+    │   ├── birch_data.csv               ← With BIRCH labels
+    │   └── spectral_data.csv            ← With Spectral labels
+    │
+    ├── models/
+    │   ├── scaler.pkl                   ← Fitted StandardScaler
+    │   ├── pca.pkl                      ← Fitted PCA
+    │   ├── kmeans.pkl                   ← Fitted K-Means model
+    │   └── cluster_names.json           ← Cluster ID to name mapping
+    │
+    ├── src/
+    │   ├── main.py                      ← Data loading, cleaning, scaling
+    │   ├── eda.py                       ← Exploratory data analysis plots
+    │   ├── kmeans.py                    ← K-Means training + model saving
+    │   ├── visualization.py             ← Cluster visualisations
+    │   ├── hierarchical.py              ← Agglomerative clustering
+    │   ├── birch.py                     ← BIRCH clustering
+    │   ├── spectral.py                  ← Spectral clustering
+    │   ├── silhouette.py                ← Silhouette analysis (all algorithms)
+    │   └── predict.py                   ← CLI customer segment predictor
+    │
+    ├── dashboard/
+    │   └── app.py                       ← Streamlit interactive dashboard
+    │
+    ├── reports/
+    │   ├── distributions.png
+    │   ├── correlation_heatmap.png
+    │   ├── boxplots.png
+    │   ├── elbow_curve.png
+    │   ├── cluster_scatter.png
+    │   ├── cluster_sizes.png
+    │   ├── cluster_heatmap.png
+    │   ├── silhouette_plot.png
+    │   ├── comparison_plot.png
+    │   ├── algorithm_comparison.png
+    │   ├── algorithm_comparison_3.png
+    │   ├── birch_comparison_plot.png
+    │   └── spectral_comparison_plot.png
+    │
+    ├── requirements.txt
+    ├── runtime.txt
+    └── README.md
+    
 ## How to Run
 
 ### 1. Install dependencies
