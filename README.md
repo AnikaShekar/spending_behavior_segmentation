@@ -155,3 +155,5 @@ streamlit run dashboard/app.py
 | PCA Components (85% variance) | 7 |
 | Largest Segment | Active Moderate Spenders (35.4%) |
 | Smallest Segment | Premium High Spenders (4.4%) |
+
+#Live at: https://spending-segmentation.streamlit.app/
