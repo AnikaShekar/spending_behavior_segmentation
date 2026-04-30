@@ -111,8 +111,8 @@ pip install pandas scikit-learn matplotlib seaborn streamlit joblib
 ```bash
 python src/main.py
 python src/eda.py
-python src/kmeans.py
 python src/visualization.py
+python src/kmeans.py
 python src/hierarchical.py
 python src/birch.py
 python src/spectral.py
