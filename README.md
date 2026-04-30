@@ -126,8 +126,6 @@ python src/predict.py
 streamlit run dashboard/app.py
 ```
 
----
-
 ## Dashboard Features
 
 **Tab 1 — Overview**
@@ -147,8 +145,6 @@ streamlit run dashboard/app.py
 - See their segment, KPIs, and profile
 - Enter custom values to predict segment for a new customer
 - Comparison table: your customer vs segment average
-
----
 
 ## Results
 
