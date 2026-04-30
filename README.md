@@ -3,13 +3,13 @@
 A machine learning project that segments credit card customers into distinct behavioral groups using clustering algorithms, with an interactive Streamlit dashboard for exploration and prediction.
 
 ## Author
-**Anika Varsha Shekar** — [@AnikaShekar](https://github.com/AnikaShekar)
+**Anika Varsha Shekar** - [@AnikaShekar](https://github.com/AnikaShekar)
 
 ## Project Overview
 
-This project analyzes credit card customer data to identify spending patterns and group customers into 5 meaningful segments using unsupervised machine learning. Three clustering algorithms are compared — K-Means, Agglomerative, and BIRCH — with K-Means selected as the final model based on silhouette score.
+This project analyzes credit card customer data to identify spending patterns and group customers into 5 meaningful segments using unsupervised machine learning. Three clustering algorithms are compared - K-Means, Agglomerative, and BIRCH — with K-Means selected as the final model based on silhouette score.
 
-- **Dataset:** cc_general — Credit Card Customer Dataset (Kaggle)
+- **Dataset:** cc_general - Credit Card Customer Dataset (Kaggle)
 - **Primary Algorithm:** K-Means Clustering
 - **Algorithms Compared:** K-Means, Agglomerative, BIRCH, Spectral
 - **Segments Found:** 5
@@ -20,10 +20,10 @@ This project analyzes credit card customer data to identify spending patterns an
 
 | Segment | Customers | Description |
 |---------|-----------|-------------|
-| 🔴 High Risk — Cash Advance & Debt Users | 987 | High balance, high cash advance, barely pays back |
+| 🔴 High Risk - Cash Advance & Debt Users | 987 | High balance, high cash advance, barely pays back |
 | 🟡 Premium High Spenders | 395 | Highest purchases and credit limit |
 | 🔵 Active Moderate Spenders | 3,164 | Largest group, moderate spending behavior |
-| 🟠 Revolvers — Minimum Payers | 3,047 | Carry debt, very low full payment rate |
+| 🟠 Revolvers - Minimum Payers | 3,047 | Carry debt, very low full payment rate |
 | 🟢 Inactive / Dormant Users | 1,357 | Lowest balance and purchases |
 
 ## Algorithm Comparison
@@ -128,19 +128,19 @@ streamlit run dashboard/app.py
 
 ## Dashboard Features
 
-**Tab 1 — Overview**
+**Tab 1 - Overview**
 - Total customers, features, clusters, and silhouette scores
 - Segment distribution table with percentages
 - Pie chart of segment split
 - Raw data sample
 
-**Tab 2 — Cluster Explorer**
+**Tab 2 - Cluster Explorer**
 - Drill down into any segment
 - KPI tiles: balance, purchases, cash advance, credit limit, full pay %
 - Grouped bar chart: segment average vs overall average
 - Segment sample data table
 
-**Tab 3 — Customer Lookup**
+**Tab 3 - Customer Lookup**
 - Look up any customer by index (0 to 8949)
 - See their segment, KPIs, and profile
 - Enter custom values to predict segment for a new customer
