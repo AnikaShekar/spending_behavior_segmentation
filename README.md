@@ -33,7 +33,6 @@ This project analyzes credit card customer data to identify spending patterns an
 | K-Means | 0.242 |
 | Agglomerative | 0.217 |
 | BIRCH | 0.169 |
-| Spectral | — |
 
 K-Means was selected as the final model due to the highest silhouette score, interpretable cluster profiles, and efficient scalability on 8,950 customers.
 
@@ -110,15 +109,15 @@ pip install pandas scikit-learn matplotlib seaborn streamlit joblib
 
 ### 2. Run scripts in order
 ```bash
-python src/main.py            # Step 1 — Clean and prepare data
-python src/eda.py             # Step 2 — Generate EDA plots (optional)
-python src/kmeans.py          # Step 3 — Train model and save artefacts ⬅ required
-python src/visualization.py   # Step 4 — Visualise clusters
-python src/hierarchical.py    # Step 5 — Agglomerative comparison
-python src/birch.py           # Step 6 — BIRCH comparison
-python src/spectral.py        # Step 7 — Spectral comparison
-python src/silhouette.py      # Step 8 — Full silhouette analysis
-python src/predict.py         # Step 9 — CLI predictor (optional)
+python src/main.py
+python src/eda.py
+python src/kmeans.py
+python src/visualization.py
+python src/hierarchical.py
+python src/birch.py
+python src/spectral.py
+python src/silhouette.py
+python src/predict.py
 ```
 
 > Always run from the project root `spending-segmentation/`, not from inside `src/`
