@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.cluster import AgglomerativeClustering
+from sklearn.cluster import Birch
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 from sklearn.decomposition import PCA
@@ -8,6 +8,7 @@ from sklearn.decomposition import PCA
 #Load data
 df = pd.read_csv('data/cleaned_data.csv')
 
+#Drop redundant columns
 redundant_cols = ['PURCHASES_TRX', 'CASH_ADVANCE_TRX','ONEOFF_PURCHASES', 'INSTALLMENTS_PURCHASES']
 df_cluster = df.drop(columns=redundant_cols)
 
@@ -18,29 +19,30 @@ df_scaled = scaler.fit_transform(df_cluster)
 pca_cluster = PCA(n_components=0.85, random_state=42)
 df_pca = pca_cluster.fit_transform(df_scaled)
 
-#Agglomerative Clustering
-agg = AgglomerativeClustering(n_clusters=5, linkage='ward')
-agg_labels = agg.fit_predict(df_pca)
+#BIRCH Clustering
+birch = Birch(n_clusters=5, threshold=0.5)
+birch_labels = birch.fit_predict(df_pca)
 
-df['Agg_Cluster'] = agg_labels
+df['Birch_Cluster'] = birch_labels
 
 #Silhouette scores
 kmeans_score = 0.242
-agg_score = silhouette_score(df_pca, agg_labels)
+agg_score = 0.217
+birch_score = silhouette_score(df_pca, birch_labels)
 
 print(f"K-Means Silhouette Score: {kmeans_score:.3f}")
 print(f"Agglomerative Silhouette Score: {agg_score:.3f}")
-print(f"Difference: {abs(agg_score - kmeans_score):.3f}")
+print(f"BIRCH Silhouette Score: {birch_score:.3f}")
 
-print("\nAgglomerative Cluster Sizes:")
-print(pd.Series(agg_labels).value_counts().sort_index())
+print("\nBIRCH Cluster Sizes:")
+print(pd.Series(birch_labels).value_counts().sort_index())
 
 key_cols = ['BALANCE', 'PURCHASES', 'CASH_ADVANCE','CREDIT_LIMIT', 'PAYMENTS', 'PRC_FULL_PAYMENT']
-agg_profile = df.groupby('Agg_Cluster')[key_cols].mean().round(2)
-print("\nAgglomerative Cluster Profile:")
-print(agg_profile)
+birch_profile = df.groupby('Birch_Cluster')[key_cols].mean().round(2)
+print("\nBIRCH Cluster Profile:")
+print(birch_profile)
 
-#PCA to 2 dimensions for visualisation only
+#PCA to 2 dimensions for visualisation
 pca_viz = PCA(n_components=2)
 X_pca = pca_viz.fit_transform(df_scaled)
 
@@ -49,13 +51,13 @@ kmeans_labels = kmeans_df['Cluster'].values
 
 colors = ['red', 'gold', 'steelblue', 'orange', 'green']
 
-#Side-by-side scatter: K-Means vs Agglomerative
+#Side-by-side scatter: K-Means vs BIRCH
 fig, axes = plt.subplots(1, 2, figsize=(16, 6), facecolor='#0e1117')
 
 for ax, lbls, title in zip(
     axes,
-    [kmeans_labels, agg_labels],
-    ['K-Means Clustering', 'Agglomerative Clustering']
+    [kmeans_labels, birch_labels],
+    ['K-Means Clustering', 'BIRCH Clustering']
 ):
     ax.set_facecolor('#1e2130')
 
@@ -76,32 +78,32 @@ for ax, lbls, title in zip(
     for spine in ax.spines.values():
         spine.set_edgecolor('#3d4470')
 
-plt.suptitle('K-Means vs Agglomerative Clustering Comparison',color='white', fontsize=15, y=1.02)
+plt.suptitle('K-Means vs BIRCH Clustering Comparison',color='white', fontsize=15, y=1.02)
 plt.tight_layout()
-plt.savefig('reports/comparison_plot.png', bbox_inches='tight', facecolor='#0e1117')
+plt.savefig('reports/birch_comparison_plot.png', bbox_inches='tight', facecolor='#0e1117')
 plt.show()
 plt.close()
 
-#Bar chart — silhouette score comparison
-fig, ax = plt.subplots(figsize=(6, 4), facecolor='#0e1117')
+#3-algorithm silhouette comparison
+fig, ax = plt.subplots(figsize=(7, 4), facecolor='#0e1117')
 ax.set_facecolor('#1e2130')
 
-algorithms = ['K-Means', 'Agglomerative']
-scores = [kmeans_score, agg_score]
-bar_colors = ['steelblue', 'coral']
+algorithms = ['K-Means', 'Agglomerative', 'BIRCH']
+scores = [kmeans_score, agg_score, birch_score]
+bar_colors = ['steelblue', 'coral', 'mediumpurple']
 
 bars = ax.bar(algorithms, scores, color=bar_colors, width=0.4)
 
 for bar, score in zip(bars, scores):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
-        bar.get_height() + 0.005,
+        bar.get_height() + 0.003,
         f'{score:.3f}',
         ha='center', color='white', fontsize=12
     )
 
 ax.set_ylabel('Silhouette Score', color='white')
-ax.set_title('Algorithm Comparison - Silhouette Score', color='white', fontsize=12)
+ax.set_title('3-Algorithm Comparison - Silhouette Score', color='white', fontsize=12)
 ax.tick_params(colors='white')
 ax.set_ylim(0, max(scores) + 0.05)
 
@@ -109,8 +111,8 @@ for spine in ax.spines.values():
     spine.set_edgecolor('#3d4470')
 
 plt.tight_layout()
-plt.savefig('reports/algorithm_comparison.png', facecolor='#0e1117')
+plt.savefig('reports/algorithm_comparison_3.png', facecolor='#0e1117')
 plt.show()
 plt.close()
 
-df.to_csv('data/hierarchical_data.csv', index=False)
+df.to_csv('data/birch_data.csv', index=False)
