@@ -120,7 +120,6 @@ python src/silhouette.py
 python src/predict.py
 ```
 
-> Always run from the project root `spending-segmentation/`, not from inside `src/`
 
 ### 3. Launch the dashboard
 ```bash
